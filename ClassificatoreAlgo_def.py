@@ -56,7 +56,7 @@ def make_dataset(image_paths, species_labels, stage_labels, is_training=True):
         ds = ds.shuffle(1000)
     return ds.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)
 
-# Modello CNN migliorato
+# Modello CNN 
 def create_cnn_model():
     inputs = keras.Input(shape=(IMG_HEIGHT, IMG_WIDTH, 3))
 
@@ -105,7 +105,7 @@ def create_cnn_model():
 image_paths, labels_species, labels_stages, light_labels = collect_image_paths(DATASET_PATH)
 kf = KFold(n_splits=K_FOLDS, shuffle=True, random_state=42)
 
-# Contenitori per metriche e confusion matrix
+# metriche e confusion matrix
 treatment_metrics = defaultdict(list)
 conf_matrices_species = defaultdict(list)
 conf_matrices_stage = defaultdict(list)
@@ -173,7 +173,7 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(image_paths)):
         conf_matrices_stage[treatment].append(cm_st)
 
 # Report metriche aggregate
-print("\n📊 Performance per trattamento luminoso (media sui fold):")
+print("\n Performance per trattamento luminoso (media sui fold):")
 for treatment in LIGHT_TREATMENTS:
     acc_s, acc_st, f1_s, f1_st, mcc_s, mcc_st, precision_s, precision_st, recall_s, recall_st = map(np.mean, zip(*treatment_metrics[treatment]))
     print(f"{treatment}: Species Acc={acc_s:.3f}, Stage Acc={acc_st:.3f}, "
@@ -181,7 +181,7 @@ for treatment in LIGHT_TREATMENTS:
           f"Species MCC={mcc_s:.3f}, Stage MCC={mcc_st:.3f}")
 
 # Plot confusion matrix finale per trattamento
-print("\n📉 Confusion Matrix finale normalizzata per trattamento luminoso:")
+print("\n Confusion Matrix finale normalizzata per trattamento luminoso:")
 for treatment in LIGHT_TREATMENTS:
     total_cm_s = sum(conf_matrices_species[treatment])
     total_cm_st = sum(conf_matrices_stage[treatment])
