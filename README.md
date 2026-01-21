@@ -1,4 +1,4 @@
-# ClassificationArticle (doi.org/10.1016/j.atech.2025.101677)
+# Repository - Optimizing artificial lighting for convolutional neural network-based crop monitoring with low-cost RGB imaging in indoor cultivation (doi.org/10.1016/j.atech.2025.101677)
 
 ## Contents
 
