@@ -36,12 +36,10 @@ The light dataset includes RGB images of four plant species acquired under contr
 ### Directory structure
 
 The dataset is organized according to the following hierarchical structure:
-
-Species
-└── Growth stage
-└── Light treatment
-└── Image files (.jpg)
-
+  - Species
+    - Growth stage
+      - Light treatment
+        - Image files (.jpg)
 
 Where:
 
