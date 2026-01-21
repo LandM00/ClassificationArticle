@@ -9,10 +9,9 @@ The dataset is organized according to the following hierarchical structure:
           - Image files (.jpg)
 
 Where:
-
-Species ∈ {Aubergine, Basil, Cucumber, Tomato};
-Growth stage ∈ {GerminationStage, VegetativeStage};
-Light treatment ∈ {RB1, RB3, RB5, RB7, RB9}.
+- Species ∈ {Aubergine, Basil, Cucumber, Tomato};
+- Growth stage ∈ {GerminationStage, VegetativeStage};
+- Light treatment ∈ {RB1, RB3, RB5, RB7, RB9}.
 
 Each image belongs to exactly one species, one growth stage, and one light treatment.
 Images were acquired in controlled experimental conditions using a fixed imaging setup. All images are provided in JPEG format. During model training, images were resized to 256 × 192 pixels and normalized to the [0, 1] range.
