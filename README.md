@@ -1,20 +1,5 @@
 # ClassificationArticle
 
-This repository contains the data, code and results associated with the classification study on plant species and growth stages under different light treatments.
-
----
-
-## Overview
-
-This repository provides:
-- a light version of the experimental image dataset,
-- the Python code used for model training and evaluation,
-- the performance metrics obtained from cross-validation experiments.
-
-The materials are released to support transparency, reproducibility and methodological reuse.
-
----
-
 ## Contents
 
 The repository includes the following main components:
@@ -49,8 +34,6 @@ Where:
 
 Each image belongs to exactly one species, one growth stage, and one light treatment.
 
-### Data acquisition and preprocessing
-
 Images were acquired in controlled experimental conditions using a fixed imaging setup.  
 All images are provided in JPEG format.  
 During model training, images were resized to 256 × 192 pixels and normalized to the [0, 1] range.
@@ -75,8 +58,6 @@ The code performs the following main steps:
 - confusion matrix generation,  
 - export of results to Excel files and image plots.  
 
-### Computational environment
-
 The code is written in Python and relies on the following main libraries:
 
 - TensorFlow / Keras  
@@ -89,33 +70,30 @@ GPU acceleration and mixed-precision training are supported.
 
 ---
 
-## 3. Metrics_CNN_results.xlsx
+## 3. Metrics_CNN_results.csv
 
 ### Description
 
-`Metrics_CNN_results.xlsx` contains the performance metrics obtained from the evaluation of the CNN model for plant species classification under different experimental treatments.
+`Metrics_CNN_results.csv` contains the performance metrics obtained from the evaluation of the CNN model for plant species classification under different experimental treatments.
 
 The dataset reports the results of a five-fold cross-validation procedure, together with the average performance across folds, and was used to support the quantitative analysis presented in the associated scientific article.
 
-### File structure
+The file is provided in CSV format in order to ensure interoperability and long-term accessibility, in compliance with FAIR data principles.
 
-The Excel file is organized into six worksheets:
+The CSV file is organized in tabular form, where each row corresponds to a specific experimental treatment and cross-validation fold.
 
-- Fold_1  
-- Fold_2  
-- Fold_3  
-- Fold_4  
-- Fold_5  
-- Media_fold  
+The dataset includes both:
+- metrics computed for each individual fold, and  
+- mean values computed across the five folds.
 
-Each worksheet corresponds to one fold of the cross-validation procedure.  
-The sheet **Media_fold** reports the mean values of all performance metrics computed across the five folds.
+A dedicated column indicates the fold number, with the value `Media` used to denote the average across folds.
 
-### Reported metrics
+### Reported columns
 
 For each experimental treatment, the following columns are provided:
 
 - **Trattamento**: identifier of the experimental treatment or condition  
+- **Fold**: cross-validation fold identifier (1–5) or `Media` for the average across folds  
 - **Species Accuracy**: overall classification accuracy  
 - **Species Precision**: precision of the species classification  
 - **Species Recall**: recall (sensitivity) of the species classification  
@@ -124,11 +102,5 @@ For each experimental treatment, the following columns are provided:
 
 All metrics are dimensionless and range between 0 and 1, with higher values indicating better classification performance.
 
----
-
-## Relation to the associated publication
-
-The dataset and the code support the results presented in the associated scientific article and were used to generate the performance analyses reported in the Results section.
-
----
+This dataset supports the results presented in the associated scientific article and was used to generate the performance analyses reported in the Results section.
 
